@@ -14,9 +14,9 @@ img{max-width: 100%; width: 100%;}
 	margin:0 auto;
 	padding: 30px 0;
 }
-
+/*url(images/bg/headline02.png) #6d00ab no-repeat center top*/
 .main_header{
-	background: #1565c0 ;
+	background: #6d00ab;
 	color:#fff;
 }
 
@@ -121,5 +121,9 @@ label button:hover{background-color: #20bf6b;}
 .button_edit_product a:hover{background-color: #778ca3;}
 
 .main_home_slide{background-color: #2d98da;}
+.main_home_slide .container{padding: 8% 0;}
+.main_home_slide h2{font-size: 2.4em; font-weight: bold;  color:#fff; text-transform: uppercase;}
+.sep{width: 100px; height: 10px; border-radius: 3px; background-color: #FFF; display: block; margin: 25px 0;}
+
 .btn_voltar{margin-bottom: 30px; }
 .main_footer{background-color: #4b6584; color:#fff;}
