@@ -1,0 +1,10 @@
+{
+    "name": "joaopaulo/teste",
+    "description": "Projeto teste",
+    "require": {},
+    "autoload" : {
+    	"psr-4": {
+                "Source\\": "Source"
+        }
+    }
+}
