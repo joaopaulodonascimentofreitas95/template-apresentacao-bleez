@@ -1,12 +1,6 @@
-<main class="main_home_container">
-	<article class="main_home_slide">
-		<div class="container">
-			<h2>Projeto de Seleção</h2>
-			<span class="sep"></span>
-		</div>
-	</article>
-	<section class="container">
-		<h2 class="header_title_line"><span>Nossos Produtos</span></h2>
+<main>
+		<section class="container">
+	<h2 class="header_title_line"><span>Nossos Produtos</span></h2>
 		<div class="main_home_pdts">
 		<?php foreach (listProducts() as $key => $pdt): 
 			extract($pdt);
@@ -44,7 +38,7 @@
 							</span>
 						<?php endif; ?>						
 				</div>
-				<a href="<?=BASE."/produto/{$pdt_name}";?>" title="<?=$pdt_title." - ".SITE_NAME;?>" class="btn btn_green">Mais detalhes</a>
+				<a href="<?=URL_PDT."/{$pdt_name}";?>" title="<?=$pdt_title." - ".SITENAME;?>" class="btn btn_green">Mais detalhes</a>
 			</article>
 
 		<?php endforeach; ?>

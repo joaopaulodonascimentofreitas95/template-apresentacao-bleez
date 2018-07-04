@@ -1,49 +1,44 @@
 <?php
-	require_once(__DIR__."/config.inc.php");
-	$url = getUrl();
+ob_start(); session_start();
+require('config.inc.php');
+// require('dts/dbaSis.php');
+// require('dts/getSis.php');
+// require('dts/setSis.php');
+// require('dts/outSis.php');
 ?>
-<!DOCTYPE>
-<html lang="pt_br">
+<!DOCTYPE html>
+<html lang="pd-br">
 <head>
-    <title><?=getInformationPage()["page_title"];?></title>
-    <meta name="description" content="<?=getInformationPage()["page_description"];?>"/>
-    <?php getFilesCss();?>  
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">  
+<?php $Seo = getHeaderPage();?>
+
+	<title><?=$Seo->title;?></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="base" href="<?=setHome();?>"/>
+	<meta name="title" content="<?=$Seo->title;?>" />
+ 	<meta name="description" content="<?=$Seo->description;?>" />
+ 	<meta name="keywords" content="<?=$Seo->keywords;?>" />
+ 	<meta name="author" content="<?=$Seo->author;?>" />   
+ 	<meta name="url" content="<?=$Seo->url;?>" />  
+ 	<meta name="language" content="<?=$Seo->language;?>" /> 
+ 	<meta name="robots" content="<?=$Seo->robots;?>" /> 
+
+<link href="<?php setHome();?>/Assets/fonticon.css" rel="stylesheet" type="text/css" />
+<link href="<?php setHome();?>/Assets/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="icon" type="image/png" href="<?php setHome();?>/tpl/images/favicon.png" />
 </head>
+
 <body>
 
-<?php
-require_once __DIR__ . '/_theme/main/header.inc.php';
+<?php getFileInc('inc/header.php');?>
 
-$listProducts = getNameProducts();
+<?php getHome(); ?>
 
+<?php getFileInc('inc/footer.php');?>
 
-if(!empty($url[0]) && $url[0] == 'list'):
-    require __DIR__ . '/_theme/main/list.php';
-
-elseif(!empty($url[0]) && ($url[0] == 'produto') && !empty($url[1])):
-
-	if(!empty($url[1]) && $url[1] == 'create' && file_exists("_theme/main/{$url['0']}/{$url['1']}.php")):
-		require __DIR__ . "/_theme/main/{$url['0']}/{$url['1']}.php";
-	endif;
-	
-	if(!empty($url['1']) && in_array($url['1'], $listProducts)):
-		require __DIR__ . "/_theme/main/produto/{$url['0']}.php";
-	endif;
-
-else :
-    require __DIR__ . '/_theme/main/index.php';
-endif;
-
-require_once __DIR__ . '/_theme/main/footer.inc.php';
-
-?>
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" crossorigin="anonymous"></script>
-<script src="Assets/js/scripts.js"></script>
-<!--JavaScript at end of body for optimized loading-->
-<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
+
+<?php include('Assets/js/jscSis.php'); ob_end_flush(); ?>
+
 </html>
